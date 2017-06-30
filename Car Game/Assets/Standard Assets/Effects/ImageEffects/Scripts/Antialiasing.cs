@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 namespace UnityStandardAssets.ImageEffects
 {
@@ -83,25 +84,9 @@ namespace UnityStandardAssets.ImageEffects
         }
 
 
-        public override bool CheckResources()
+        public bool CheckResources()
         {
-            CheckSupport(false);
-
-            materialFXAAPreset2 = CreateMaterial(shaderFXAAPreset2, materialFXAAPreset2);
-            materialFXAAPreset3 = CreateMaterial(shaderFXAAPreset3, materialFXAAPreset3);
-            materialFXAAII = CreateMaterial(shaderFXAAII, materialFXAAII);
-            materialFXAAIII = CreateMaterial(shaderFXAAIII, materialFXAAIII);
-            nfaa = CreateMaterial(nfaaShader, nfaa);
-            ssaa = CreateMaterial(ssaaShader, ssaa);
-            dlaa = CreateMaterial(dlaaShader, dlaa);
-
-            if (!ssaaShader.isSupported)
-            {
-                NotSupported();
-                ReportAutoDisable();
-            }
-
-            return isSupported;
+            return false;
         }
 
 

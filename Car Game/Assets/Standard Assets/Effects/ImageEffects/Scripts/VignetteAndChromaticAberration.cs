@@ -32,41 +32,14 @@ namespace UnityStandardAssets.ImageEffects
         private Material m_SeparableBlurMaterial;
         private Material m_ChromAberrationMaterial;
 
-        public override bool CheckResources
+        public bool CheckResources()
         {
-            get
-            {
-                CheckSupport(false);
-
-                m_VignetteMaterial = CheckShaderAndCreateMaterial(vignetteShader, m_VignetteMaterial);
-                m_SeparableBlurMaterial = CheckShaderAndCreateMaterial(separableBlurShader, m_SeparableBlurMaterial);
-                m_ChromAberrationMaterial = CheckShaderAndCreateMaterial(chromAberrationShader, m_ChromAberrationMaterial);
-
-                bool isSupported = false;
-                if (!isSupported)
-                    ReportAutoDisable();
-                return isSupported;
-            }
-        }
-
-        private void CheckSupport(bool v)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ReportAutoDisable()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Material CheckShaderAndCreateMaterial(Shader vignetteShader, Material m_VignetteMaterial)
-        {
-            throw new NotImplementedException();
+            return false;
         }
 
         void OnRenderImage (RenderTexture source, RenderTexture destination)
         {
-            if (CheckResources== false)
+            if (CheckResources() == false)
             {
                 Graphics.Blit (source, destination);
                 return;
